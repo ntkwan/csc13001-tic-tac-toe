@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+    x:Class="WinUI_Learn.Views.Ex1Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:WinUI_Learn.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Key="0" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Red" />
+            <Setter Property="BorderThickness" Value="2" />
+        </Style>
+        <Style
+            x:Key="1"
+            BasedOn="{StaticResource 0}"
+            TargetType="Border">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="400" />
+        </Style>
+        <Style
+            x:Key="2"
+            BasedOn="{StaticResource 0}"
+            TargetType="Border">
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Height" Value="100" />
+        </Style>
+    </Page.Resources>
+    <StackPanel
+        HorizontalAlignment="Center"
+        Orientation="Horizontal"
+        Spacing="30">
+        <Border Style="{StaticResource 1}">
+            <TextBlock>some text</TextBlock>
+        </Border>
+        <Border Style="{StaticResource 1}">
+            <TextBlock>some text</TextBlock>
+        </Border>
+        <Border Style="{StaticResource 1}">
+            <TextBlock>some text</TextBlock>
+        </Border>
+        <Border Style="{StaticResource 1}">
+            <StackPanel VerticalAlignment="Center" Spacing="20">
+                <Border Style="{StaticResource 2}">
+                    <TextBlock>some text</TextBlock>
+                </Border>
+                <Border Style="{StaticResource 2}">
+                    <TextBlock>some text</TextBlock>
+                </Border>
+                <Border Style="{StaticResource 2}">
+                    <TextBlock>some text</TextBlock>
+                </Border>
+            </StackPanel>
+        </Border>
+        <Border
+            Height="400"
+            Padding="10"
+            Style="{StaticResource 0}">
+            <Grid ColumnSpacing="10" RowSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border
+                    Grid.Row="0"
+                    Grid.ColumnSpan="3"
+                    Style="{StaticResource 0}">
+                    <TextBlock>some text</TextBlock>
+                </Border>
+
+                <Border
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Grid.Column="0"
+                    Style="{StaticResource 0}">
+                    <TextBlock>some text</TextBlock>
+                </Border>
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Style="{StaticResource 0}">
+                    <TextBlock>some text</TextBlock>
+                </Border>
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Style="{StaticResource 0}">
+                    <TextBlock>some text</TextBlock>
+                </Border>
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource 0}">
+                    <TextBlock>some text</TextBlock>
+                </Border>
+            </Grid>
+        </Border>
+        <Button Click="Button_Click">Quay lại</Button>
+    </StackPanel>
+</Page>
