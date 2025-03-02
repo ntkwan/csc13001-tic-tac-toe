@@ -19,11 +19,10 @@ public abstract class TicTacToeMinimaxBase : IAlgorithm
     public abstract (int row, int col) GetMove(char[,] board, char computerSymbol);
 
     // Returns the optimal move using the minimax algorithm with alpha–beta pruning.
-    protected (int, int) GetOptimalMove(char[,] board, char computerSymbol)
+    protected List<((int row, int col) move, int score)> GetOptimalMove(char[,] board, char computerSymbol)
     {
         char opponent = computerSymbol == 'X' ? 'O' : 'X';
-        int bestVal = int.MinValue;
-        (int, int) bestMove = (-1, -1);
+        var moves = new List<((int row, int col) move, int score)>();
         int rows = board.GetLength(0);
         int cols = board.GetLength(1);
 
@@ -36,16 +35,11 @@ public abstract class TicTacToeMinimaxBase : IAlgorithm
                     board[i, j] = computerSymbol;
                     int moveVal = Minimax(board, 0, false, int.MinValue, int.MaxValue, computerSymbol, opponent);
                     board[i, j] = ' ';
-
-                    if (moveVal > bestVal)
-                    {
-                        bestVal = moveVal;
-                        bestMove = (i, j);
-                    }
+                    moves.Add(((i, j), moveVal));
                 }
             }
         }
-        return bestMove;
+        return moves;
     }
 
     // Minimax algorithm with alpha-beta pruning.
