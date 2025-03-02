@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CaroBotAlgorithm\CaroBotAlgorithm.csproj" />
+    <ProjectReference Include="..\EasyBotAlgorithm\EasyBotAlgorithm.csproj" />
+    <ProjectReference Include="..\HardBotAlgorithm\HardBotAlgorithm.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Assets\1.jpg">
